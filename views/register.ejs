@@ -1,0 +1,137 @@
+
+<style>
+
+    .register{
+      background: rgb(221, 245, 198);
+      line-height: 100%;
+      padding: 13%;
+    }
+  
+    .block{
+      width: 90%;
+      margin-inline-start: 10%;
+    }
+  
+    .button{
+      color: black;
+      background: white;
+      padding: 4%;
+      border-radius: 29px;
+      padding-left: 13%;
+      padding-right: 13%;
+      margin: auto;
+      font-size: 24px;
+      margin: inherit;
+    }
+  
+    .button:hover {
+      text-decoration: none;
+      color: grey;
+      font-size: 28px;
+    }
+  
+    .form{
+      align-self: center;
+    }
+  
+    .login_button{
+      color: black;
+      background: rgb(221, 245, 198);
+      padding: 1.5%;
+      border-radius: 29px;
+      padding-left: 9%;
+      padding-right: 9%;
+      margin: auto;
+      font-size: 24px;
+      margin: inherit;
+      border: none;
+    }
+  
+    .login_button:hover {
+      text-decoration: none;
+      color: grey;
+      font-size: 28px;   
+    }
+  
+    .signinn{
+      width: 60%;
+      margin-inline-start: 20%;
+    }
+  
+    input{
+      width: 70%;
+      border-radius: 20px;
+      margin-left: 5%;
+      padding: 2%;
+      background: rgb(233, 231, 231);
+      border: none;
+    }
+  
+    input:focus{
+      border: outset;
+      outline: none;
+    }
+  
+    .login_button:focus{
+      outline: none;
+    }
+  
+    .login_button:hover {
+      cursor: pointer;
+    }
+  
+  </style>
+  
+  <% if(typeof errors != "undefined") { %>
+    <% errors. forEach(function(error){ %>
+        <div class="alert alert-warning alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <%= error.msg %>
+          </div>
+    <% }); %>
+  <% } %>
+
+  <div class="login container" style="max-width: 100%;">
+    <div class="row" style="height: 100%;">
+      <div class="col-lg-4 col-sm-12 register">
+        <div class="block">
+      <h1>Start where you left it.</h1> <h3>Login to your account and rejoin the gossips.</h3>
+      </br>
+      </br>
+      </br>
+      </br>
+      <a href="/" class="button">Log In</a>
+      </div>
+      </div>    
+      <form action="/users/register" method="POST" class="form col-lg-8 col-sm-12">
+      </br>
+      </br>
+      <div class="signinn">
+      <h1 class="sign">Create a new account </h1>
+      </br>
+      <div>
+        <label for="name"></label>
+        <input type="text" id="name" name="name" autocomplete="off" placeholder="Name" value="<%= typeof name != 'undefined' ? name : '' %>" required>
+      </div>
+      </br>
+      <div>
+        <label for="email"></label>
+        <input type="email" id="email" name="email" autocomplete="off" placeholder="Email" value="<%= typeof email != 'undefined' ? email : '' %>" required>
+      </div>
+      </br>
+      <div>
+        <label for="password"></label>
+        <input type="password" id="password" name="password" placeholder="Password" value="<%= typeof password != 'undefined' ? password : '' %>" required>
+      </div>
+      </br>
+      <div>
+        <label for="password2"></label>
+        <input type="password" id="password2" name="password2" placeholder="Confirm Password" value="<%= typeof password2 != 'undefined' ? password : '' %>" required>
+      </div>
+      </br>
+      <button type="submit" class="login_button">Sign Up</button>
+      </div>
+      </form>
+    </div>
+  </div>
+  

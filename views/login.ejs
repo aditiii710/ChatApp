@@ -1,0 +1,140 @@
+<style>
+  
+    .register{
+      background: rgb(221, 245, 198);
+      line-height: 100%;
+      padding: 13%;
+    }
+  
+    .block{
+      width: 90%;
+      margin-inline-start: 10%;
+    }
+  
+    .button{
+      color: black;
+      background: white;
+      padding: 4%;
+      border-radius: 29px;
+      padding-left: 13%;
+      padding-right: 13%;
+      margin: auto;
+      font-size: 24px;
+      margin: inherit;
+    }
+  
+    .button:hover {
+      text-decoration: none;
+      color: grey;
+      font-size: 28px;
+    }
+  
+    .form{
+      align-self: center;
+    }
+  
+    .login_button{
+      color: black;
+      background: rgb(221, 245, 198);
+      padding: 1.5%;
+      border-radius: 29px;
+      padding-left: 9%;
+      padding-right: 9%;
+      margin: auto;
+      font-size: 24px;
+      margin: inherit;
+      border: none;
+    }
+  
+    .login_button:hover {
+      text-decoration: none;
+      color: grey;
+      font-size: 28px;   
+    }
+  
+    .signinn{
+      width: 60%;
+      margin-inline-start: 20%;
+    }
+  
+    input{
+      width: 70%;
+      border-radius: 20px;
+      margin-left: 5%;
+      padding: 2%;
+      background: rgb(233, 231, 231);
+      border: none;
+    }
+  
+    input:focus{
+      border: outset;
+      outline: none;
+    }
+  
+    .login_button:focus{
+      outline: none;
+    }
+  
+  </style>
+
+  <% if(success_msg != ''){ %>
+  <div class="alert alert-success alert-dismissible fade show" role="alert">
+    <%= success_msg %>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <% } %>
+  <% if(error_msg != ''){ %>
+  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <%= error_msg %>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <% } %> 
+  <% if(error != ''){ %>
+  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <%= error %>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <% } %>
+
+  
+  <div class="login container" style="max-width: 100%;">
+    <div class="row" style="height: 100%;">
+      <form action="/users/login" method="POST" class="form col-lg-8 col-sm-12">
+      </br>
+      </br>
+      <div class="signinn">
+      <h1 class="sign">Sign in to your account </h1>
+      </br>
+      <div>
+        <label for="email"></label>
+        <input type="email" id="email" name="email" autocomplete="off" placeholder="Email" required>
+      </div>
+      </br>
+      <div>
+        <label for="password"></label>
+        <input type="password" id="password" name="password" placeholder="Password" required>
+      </div>
+      </br>
+      <button type="submit" class="login_button">Log In</button>
+      </div>
+      </form>
+      <div class="col-lg-4 col-sm-12 register">
+        <div class="block">
+    <!-- <h1>Start where you left it. Log in to your account and enjoy the gossips.</h1> -->
+    <h1>New to the place?</h1> <h3>Signup and find people with similar interests to chat to!</h3>
+    </br>
+  </br>
+  </br>
+  </br>
+    <a href="/users/register" class="button">Sign Up</a>
+  </div>
+    </div>
+    </div>
+  </div>
+  
