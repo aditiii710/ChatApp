@@ -7,7 +7,6 @@ const app = express();
 const server = require("http").Server(app);
 const io = require("socket.io")(server);
 const formatMessage = require("./utils/messages");
-
 const db = require("./config/keys").mongoURI;
 const passport = require("passport");
 require("./config/passport")(passport);
@@ -62,6 +61,6 @@ app.use("/users", require("./routes/users"));
 
 // app.listen(PORT, console.log(`Server started on port ${PORT}`));
 
-server.listen(process.env.PORT || 3004, () => {
-  console.log("Server started at port 3004");
+server.listen(process.env.PORT || 3000, () => {
+  console.log("Server started at port 3000");
 });

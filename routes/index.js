@@ -84,7 +84,7 @@ router.get("/chatroom/:id/:name", (req, res, next) => {
     (err, result) => {
       console.log(result);
       if (result.length > 0) {
-        // req.flash("error_msg", "You are already a part of the chat room");
+        req.flash("error_msg", "You are already a part of the chat room");
         res.render("chatroom", {
           result: result[0],
           name: req.params.name,
