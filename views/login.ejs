@@ -102,8 +102,7 @@
   </div>
   <% } %>
 
-  
-  <div class="login container" style="max-width: 100%;">
+  <div class="login container" style="max-width: 100%; margin-inline-end: 0;">
     <div class="row" style="height: 100%;">
       <form action="/users/login" method="POST" class="form col-lg-8 col-sm-12">
       </br>
@@ -124,17 +123,16 @@
       <button type="submit" class="login_button">Log In</button>
       </div>
       </form>
-      <div class="col-lg-4 col-sm-12 register">
-        <div class="block">
-    <!-- <h1>Start where you left it. Log in to your account and enjoy the gossips.</h1> -->
-    <h1>New to the place?</h1> <h3>Signup and find people with similar interests to chat to!</h3>
-    </br>
-  </br>
-  </br>
-  </br>
-    <a href="/users/register" class="button">Sign Up</a>
-  </div>
-    </div>
+      <div class="col-lg-4 col-sm-12 register" style="padding-left: 0;">
+        <div class="block" style="margin-left: 70px;">
+          <h1>New to the place?</h1> <h3>Signup and find people with similar interests to chat to!</h3>
+          </br>
+          </br>
+          </br>
+          </br>
+          <a href="/users/register" class="button">Sign Up</a>
+        </div>
+      </div>
     </div>
   </div>
   

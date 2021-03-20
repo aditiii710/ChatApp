@@ -418,6 +418,58 @@
     background: #279636;
     cursor: pointer;
   }
+
+  .chats{
+    background-image: linear-gradient(rgb(219, 216, 240), rgb(127, 127, 226));
+    border: 2px solid black;
+    width: 30%;
+    margin-inline-start: 35%;
+    height: 500px;
+    overflow-y: scroll;
+    font-size: 20px;
+  }
+
+  .chats::-webkit-scrollbar {
+    display: none;
+  }
+
+  h2{
+    background: grey;
+    text-align: center;
+    height: 50px;
+  }
+
+  .list{
+    display: block;
+    margin-inline-start: 10px;
+    border-bottom: 1px solid rgb(39, 35, 35);
+  }
+
+  i{
+    margin-inline-end: 10px;
+  }
+
+  span{
+    width: 40%;
+  }
+
+  .join{
+    color: black;
+    text-decoration: none;
+    font-size: large;
+    border-radius: 5px;
+    padding-left: 3%;
+    padding-right: 3%;
+    float: right;
+    background-image: linear-gradient(#007bff, #cfd8dc);
+    margin-right: 15px;
+  }
+
+  .join:hover{
+    color: black;
+    text-decoration: none;
+  }
+
 </style>
 
 <div id="wrapper">
@@ -432,26 +484,10 @@
     <ul class="nav sidebar-nav">
       <div class="sidebar-header">
         <div class="sidebar-brand">
-          <a href="/">Hi <%= name %> </a>
+          <a href="/">Welcome</a>
         </div>
       </div>
-      <li><a href="/">yo</a></li>
-      <li><a href="#about">email</a></li>
-      <li><a href="#events">Events</a></li>
-      <li><a href="#team">Team</a></li>
-      <li class="dropdown">
-        <a href="#works" class="dropdown-toggle" data-toggle="dropdown"
-          >Works <span class="caret"></span
-        ></a>
-        <ul class="dropdown-menu animated fadeInLeft" role="menu">
-          <div class="dropdown-header">Dropdown heading</div>
-          <li><a href="#pictures">Pictures</a></li>
-          <li><a href="#videos">Videeos</a></li>
-          <li><a href="#books">Books</a></li>
-          <li><a href="#art">Art</a></li>
-          <li><a href="#awards">Awards</a></li>
-        </ul>
-      </li>
+      <li><a href="/"> <%= name %></a></li>
       <li><a href="/chatboxes/<%= name %>">All Chatboxes</a></li>
       <li>
         <button class="btn" data-target="#myModal" data-toggle="modal">
@@ -517,15 +553,16 @@
                   </button>
                 </div>
                 <% } %>
+
+          <div class="chats">
             
-            <h1>All chatboxes</h1>
-            
-            <% list_chats.forEach(function(chat){ %>
-               <p><%= chat.title %></p>
-                <a href="/chatroom/<%= chat.id %>/<%= name %>">JOIN</a>
-            </br>
-            </br>
-            <% }); %>
+              <h2>All chatboxes</h2>
+              <br>
+              <% list_chats.forEach(function(chat){ %>
+               <p class="list"><span><i class="fa fa-user-circle"></i><%= chat.title %></span>
+                <a class="join" href="/chatroom/<%= chat.id %>/<%= name %>">JOIN</a></p>
+               <% }); %>
+          </div>
     </div>
   </div>
   <!-- /#page-content-wrapper -->

@@ -93,7 +93,7 @@
 
   <div class="login container" style="max-width: 100%;">
     <div class="row" style="height: 100%;">
-      <div class="col-lg-4 col-sm-12 register">
+      <div class="col-lg-4 col-sm-12 register" style="padding-left: 70px;">
         <div class="block">
       <h1>Start where you left it.</h1> <h3>Login to your account and rejoin the gossips.</h3>
       </br>
@@ -127,6 +127,11 @@
       <div>
         <label for="password2"></label>
         <input type="password" id="password2" name="password2" placeholder="Confirm Password" value="<%= typeof password2 != 'undefined' ? password : '' %>" required>
+      </div>
+      </br>
+      <div>
+        <label for="hobbies"></label>
+        <input type="text" id="hobbies" name="hobbies" autocomplete="off" placeholder="Hobbies" value="<%= typeof hobbies != 'undefined' ? hobbies : '' %>" required>
       </div>
       </br>
       <button type="submit" class="login_button">Sign Up</button>

@@ -10,7 +10,7 @@ const Chatbox = require("../models/Chatboxes");
 router.get("/register", (req, res) => res.render("register"));
 
 router.post("/register", (req, res) => {
-  const { name, email, password, password2 } = req.body;
+  const { name, email, password, password2, hobbies } = req.body;
   let errors = [];
 
   if (password !== password2) {
@@ -47,6 +47,7 @@ router.post("/register", (req, res) => {
               name,
               email,
               password,
+              hobbies,
             });
 
             bcrypt.genSalt(10, (err, salt) =>

@@ -3,7 +3,7 @@ const router = experss.Router();
 const passport = require("passport");
 const { ensureAuthenticated } = require("../config/auth");
 const Chatbox = require("../models/Chatboxes");
-const Messages = require("../models/Messages");
+const User = require("../models/Users");
 const flash = require("connect-flash");
 
 router.get("/", (req, res) => res.render("login"));
@@ -23,6 +23,8 @@ router.get("/dashboard", ensureAuthenticated, (req, res) => {
     } else {
       res.render("dashboard", {
         name: req.user.name,
+        email: req.user.email,
+        hobbies: req.user.hobbies,
         id: req.user.id,
         result: result,
       });
@@ -50,12 +52,39 @@ router.get("/chatboxes/:name", (req, res) => {
   });
 });
 
+router.get("/profile/:name", (req, res, next) => {
+  User.find({ name: req.params.name }).exec((err, result) => {
+    console.log(result);
+    res.render("profile", {
+      result: result[0],
+    });
+  });
+});
+
+router.get("/leave/:name", (req, res, next) => {
+  // res.send("hello");
+  Chatbox.findOneAndUpdate(
+    { users: req.params.name },
+    { $pull: { users: req.params.name } },
+    { new: true },
+    function (err, value) {
+      console.log(value);
+      Chatbox.find({}, "title").exec((err, list_chats) => {
+        res.render("chatboxes", {
+          list_chats: list_chats,
+          name: req.params.name,
+        });
+      });
+    }
+  );
+});
+
 router.get("/chatroom/:id/:name", (req, res, next) => {
   Chatbox.find({ _id: req.params.id, users: req.params.name }).exec(
     (err, result) => {
       console.log(result);
       if (result.length > 0) {
-        req.flash("error_msg", "You are already a part of the chat room");
+        // req.flash("error_msg", "You are already a part of the chat room");
         res.render("chatroom", {
           result: result[0],
           name: req.params.name,
@@ -64,7 +93,7 @@ router.get("/chatroom/:id/:name", (req, res, next) => {
         Chatbox.findOneAndUpdate(
           { _id: req.params.id },
           { $push: { users: req.params.name } },
-          { upsert: true },
+          { upsert: true, new: true },
           function (err, value) {
             if (err) {
               return next(err);
