@@ -3,7 +3,6 @@ const chatMessages = document.querySelector(".chat-messages");
 const newChat = document.querySelector(".newchatroom");
 
 const username = window.location.href.split("/")[5];
-const room = window.location.href.split("/")[4];
 
 console.log(username, room);
 
