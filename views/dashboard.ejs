@@ -455,6 +455,12 @@
     text-decoration: none;
   }
   
+  .logout {
+    border: none;
+    background: #1a1a1a;
+    color: white;
+  }
+  
 </style>
 
 <div id="wrapper">
@@ -509,6 +515,7 @@
           </div>
         </div>
       </li>
+      <li><form action="/logout" method="POST"><button class="logout">Logout</button></form></li>
     </ul>
   </nav>
   <!-- /#sidebar-wrapper -->
